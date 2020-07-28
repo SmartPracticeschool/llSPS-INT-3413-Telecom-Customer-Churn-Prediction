@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style2.css" />
+    <title>Telecom Customer Churn Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+  </head>
+  <body>
+    <div class="login">
+      <h1>Telecom Customer Churn Prediction</h1>
+
+      <!-- Main Input For Receiving Query to our ML -->
+      <form action="{{ url_for('y_predict')}}" method="post">
+        <select name="State" placeholder="Select State" required="required">
+          <option value="">Select State </option>
+          <option value="KS">KS</option>
+          <option value="OH">OH</option>
+          <option value="NJ">NJ</option>
+          <option value="OK">OK</option>
+          <option value="AL">AL</option>
+          <option value="MA">MA</option>
+          <option value="MO">MO</option>
+          <option value="LA">LA</option>
+          <option value="WV">WV</option>
+          <option value="IN">IN</option>
+          <option value="RI">RI</option>
+          <option value="IA">IA</option>
+          <option value="MT">MT</option>
+          <option value="NY">NY</option>
+          <option value="ID">ID</option>
+          <option value="VT">VT</option>
+          <option value="VA">VA</option>
+          <option value="TX">TX</option>
+          <option value="FL">FL</option>
+          <option value="AZ">AZ</option>
+          <option value="SC">SC</option>
+          <option value="NE">NE</option>
+          <option value="WY">WY</option>
+          <option value="HI">HI</option>
+          <option value="IL">IL</option>
+          <option value="NH">NH</option>
+          <option value="GA">GA</option>
+          <option value="AK">AK</option>
+          <option value="MD">MD</option>
+          <option value="AR">AR</option>
+          <option value="WI">WI</option>
+          <option value="MI">MI</option>
+          <option value="DE">DE</option>
+          <option value="UT">UT</option>
+          <option value="CA">CA</option>
+          <option value="MN">MN</option>
+          <option value="SD">SD</option>
+          <option value="NC">NC</option>
+          <option value="WA">WA</option>
+          <option value="NM">NM</option>
+          <option value="NV">NV</option>
+          <option value="DC">DC</option>
+          <option value="OR">OR</option>
+          <option value="CO">CO</option>
+          <option value="KY">KY</option>
+          <option value="ME">ME</option>
+          <option value="MS">MS</option>
+          <option value="PA">PA</option>
+          <option value="TN">TN</option>
+          <option value="CT">CT</option>
+        </select>
+        <input
+          type="number"
+          step="any"
+          name="account length"
+          placeholder="Account Length"
+          required="required"
+        />
+        <input
+          type="number"
+          step="any"
+          name="area code"
+          placeholder="Area Code"
+          required="required"
+        />
+        <select name="International Plan" placeholder="Select Yes or No" required="required">
+            <option value="">Select Inetrnationa Plan</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+        
+        <select name="Voice Mail Plan" placeholder="Select Yes or No" required="required">
+            <option value="">Select Inetrnationa Plan</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+        
+        <input
+          type="number"
+          step="any"
+          name="number vmail messages"
+          placeholder="Number Vmail messages"
+          required="required"
+        />
+        <input
+          type="number"
+          step="any"
+          name="total day minutes"
+          placeholder="Total Day Minutes"
+          required="required"
+        />
+        <input
+          type="number"
+          step="any"
+          name="total day calls"
+          placeholder="Total Day Calls"
+          required="required"
+        />
+        <input
+          type="number"
+          step="any"
+          name="total day charge"
+          placeholder="Total Day Charge"
+          required="required"
+        />
+        <input
+          type="number"
+          step="any"
+          name="total eve minutes"
+          placeholder="Total Eve Minutes"
+          required="required"
+        />
+        <input
+          type="number"
+          step="any"
+          name="total eve calls"
+          placeholder="Total Eve Calls"
+          required="required"
+        />
+        <input
+          type="number"
+          step="any"
+          name="total eve charge"
+          placeholder="Total Eve Charge "
+          required="required"
+        />
+        <input
+          type="number"
+          step="any"
+          name="total night minutes"
+          placeholder="Total Night Minutes"
+          required="required"
+        />
+        <input
+          type="number"
+          step="any"
+          name="total night calls"
+          placeholder="Total Night Calls"
+          required="required"
+        />
+        <input
+          type="number"
+          step="any"
+          name="total night charge"
+          placeholder="Total Night Charge"
+          required="required"
+        />
+        <input
+          type="number"
+          step="any"
+          name="total intl minutes"
+          placeholder="Total Intl Minutes"
+          required="required"
+        />
+        <input
+          type="number"
+          step="any"
+          name="total intl calls"
+          placeholder="Total Intl Calls"
+          required="required"
+        />
+        <input
+          type="number"
+          step="any"
+          name="total intl charge"
+          placeholder="Total Intl Charge"
+          required="required"
+        />
+        <input
+          type="number"
+          step="any"
+          name="customer service calls"
+          placeholder="Customer Service Calls"
+          required="required"
+        />
+        <button type="submit" class="btn btn-primary btn-block btn-large">
+          Predict
+        </button>
+      </form>
+
+      <br />
+      <br />
+      <div class="output">
+          {{ prediction_text }}
+      </div>
+    </div>
+  </body>
+</html>
